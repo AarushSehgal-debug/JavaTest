@@ -2,7 +2,13 @@ import java.util.Arrays;
 
 public class Q1_References {
 
-    // ── PREDICT: What does main() print? Write your answers, then compile to check. ──
+    // ── PREDICT: What does main() print? Write your answers, then compile to check. 
+
+		 1: 5, a never change
+		 2: 6
+		 3: 6
+		 4: hello
+		 5: 1,99,3
 
     static void addOne(int x) { x += 1; }
     static void addOne(int[] arr) { arr[0] += 1; }
@@ -23,7 +29,7 @@ public class Q1_References {
         System.out.println("3: " + b[0]);
 
         String s = "hello";
-        upperCase(s);
+        upperCase(s); //syntax?
         System.out.println("4: " + s);
 
         int[] c = {1, 2, 3};
@@ -36,6 +42,13 @@ public class Q1_References {
         // You may NOT change main or the method signature.
         // Hint: think about what Java actually passes.
 
+	static void swap(int[]pair)
+	{
+		int temp = pair[0];
+		pari[0] = pari[1];
+		pair[1] = temp;
+	}
+
         int[] pair = {10, 20};
         swap(pair);
         assert pair[0] == 20 && pair[1] == 10 : "swap failed";
@@ -43,6 +56,13 @@ public class Q1_References {
 
         // Now implement swapStrings() so that after calling it,
         // arr[0] is arr[1]'s old value and vice versa.
+
+	static void swapStrings(String[] arr){
+		string temp = arr[0];
+		arr[0] = arr[1];
+		arr[1] = temp;
+	{
+		
         String[] names = {"Falcon", "Kraken"};
         swapStrings(names);
         assert names[0].equals("Kraken") && names[1].equals("Falcon") : "swapStrings failed";
@@ -51,7 +71,7 @@ public class Q1_References {
 
     // TODO: implement
     static void swap(int[] pair) {
-        // your code here
+        // i wrote it above didnt see this before
     }
 
     // TODO: implement
