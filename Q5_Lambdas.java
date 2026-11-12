@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 public class Q5_Lambdas {
 
-    // ── PREDICT: What does main() print for lines 1-3? ──
+    // ── PREDICT: What does main() print for lines 1-3? ── 
+    // 1: 7 * 3 = 21 
     // Also answer the inline questions.
 
     public static void main(String[] args) {
@@ -13,7 +14,8 @@ public class Q5_Lambdas {
         IntUnaryOperator triple = x -> x * multiplier;
         System.out.println("1: " + triple.applyAsInt(7));
         // Q: if you uncomment the next line, does it compile? why?
-        // multiplier = 4;
+        // multiplier = 4; not 100% but im p sure tha the class would need a local variable to be final or like effectively final and when we assigin it with a 4 then it makes java tweak and it's not final and compilation errors occur.
+        
 
         Runnable[] tasks = new Runnable[3];
         for (int i = 0; i < 3; i++) {
@@ -23,26 +25,26 @@ public class Q5_Lambdas {
         System.out.print("2: ");
         for (Runnable r : tasks) r.run();
         System.out.println();
-
+        // i 0 = 0 i 1 = 1 i 2 = 2 output = 012
         // Q: what if you removed "final" from idx? does it still compile?
+        // yes even without final you never chamged the value of idx so it is effecitvely final.
 
         List<String> motors = Arrays.asList("Falcon", "Neo", "Kraken", "Vortex");
         motors.sort((a, b) -> a.length() - b.length());
         System.out.println("3: " + motors);
 
-        // ── WRITE ──
-        // 1) Write a method "applyToAll" that takes a List<Integer> and a
-        //    UnaryOperator<Integer>, applies the operator to every element
-        //    IN PLACE (mutates the list), and returns void.
+        // Neom falcon, Kranken, Vortex.
+        static void applyToAll(List<Integer> list, UnaryOperator<Integer> operator) {
+            for (int i = 0; i < list.size(); i++) {
+                    int curr = list.get(i);
+                    int upd = operator.apply(current);
+                    list.set(i, updated);
+                }
+        }
 
-        List<Integer> nums = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
-        applyToAll(nums, x -> x * x);
-        assert nums.equals(Arrays.asList(1, 4, 9, 16, 25)) : "applyToAll failed: " + nums;
-        System.out.println("applyToAll ok");
-
-        // 2) Write a method "compose" that takes two IntUnaryOperators f and g
-        //    and returns a new IntUnaryOperator that computes f(g(x)).
-        //    Do NOT use .compose() or .andThen() — write the lambda yourself.
+        static IntUnaryOperator compose(IntUnaryOperator f, IntUnaryOperator g) {
+            return x -> f.applyAsInt(g.applyAsInt(x));
+        }
 
         IntUnaryOperator doubleIt = x -> x * 2;
         IntUnaryOperator addThree = x -> x + 3;
@@ -52,6 +54,13 @@ public class Q5_Lambdas {
 
         // 3) Using streams, write one expression that filters nums to only
         //    values > 5, then sums them. Store result in "total".
+
+        int total = nums.stream()
+            {
+            .filter(n -> n > 5)
+            .maptoint(Integer::intVlaue
+            .sum();
+        }
 
         int total = 0; // replace this
         assert total == 9 + 16 + 25 : "stream sum failed: " + total;
