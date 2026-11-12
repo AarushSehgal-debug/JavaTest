@@ -28,6 +28,31 @@ public class Q2_Inheritance {
         Motor m4 = new Kraken();
         System.out.println("4: " + (m4 instanceof Falcon));
 
+    
+
+ static class Neo extends Motor{
+
+         int rpm;
+
+         Neo(int rpm) 
+     {
+         this.rmp = rpm;
+     }
+
+     @Override
+     //for debugging but i am working in the github so like not even nessesary :(
+     String name() {
+        return "neo";
+     }
+
+     @Overide 
+     voide run(){
+         System.out.print(super.name().replace("motor", name()) + "spinnin at" + rpm+ "RPM");
+     }
+        
+ }
+    }
+
         // ── WRITE ──
         // Create a class "Neo" that extends Motor such that:
         //   - neo.name() returns "Neo"
