@@ -9,10 +9,12 @@ public class Q6_Tricky {
         Integer a = 127;
         Integer b = 127;
         System.out.println("1: " + (a == b));
+        // 1: true 
 
         Integer c = 128;
         Integer d = 128;
         System.out.println("2: " + (c == d));
+        //2 : false - its because the as you said "cache" is 127 but when we make 128 it is outside 127 so java makes two seperate varaibels c adn d and c isnt equal to d so false...??? ;
 
         // Q6b: String interning
         String s1 = "frc";
@@ -22,6 +24,8 @@ public class Q6_Tricky {
         System.out.println("4: " + (s1 == s3));
         System.out.println("5: " + s1.equals(s3));
 
+        // 3: true 4: false 5: true 
+
         // Q6c: null unboxing
         try {
             Integer e = null;
@@ -30,13 +34,21 @@ public class Q6_Tricky {
         } catch (Exception ex) {
             System.out.println("6: " + ex.getClass().getSimpleName());
         }
+        // exception bc Integer aut converts to int but no int value so error/exception....
 
-        // ── WRITE ──
-        // 1) Implement safeEquals that:
-        //    - returns true if both are null
-        //    - returns false if exactly one is null
-        //    - uses .equals() otherwise
-        //    Do NOT use Objects.equals (pretend it doesn't exist).
+
+        statuc boolean fadeEquals(Object a, Object b){
+            if ( a == null && b = null)
+            {
+                return true 
+            }
+
+            if ( a == null || b == null) {
+                    return true;
+            }
+            reutrn a.equals(b);
+        }
+        
 
         assert safeEquals(null, null) == true;
         assert safeEquals("a", null) == false;
@@ -45,8 +57,15 @@ public class Q6_Tricky {
         assert safeEquals("frc", "nope") == false;
         System.out.println("safeEquals ok");
 
-        // 2) Implement safeUnbox that takes an Integer and a default int.
-        //    If the Integer is null, return the default. Otherwise unbox it.
+        Static int safeUnbox(Integer val, int defVal)
+            {
+            if ( val == null)
+            {
+                 return defVal
+            }
+
+            return val;
+        }
 
         assert safeUnbox(null, 42) == 42;
         assert safeUnbox(Integer.valueOf(7), 42) == 7;
@@ -60,9 +79,9 @@ public class Q6_Tricky {
         // for (int i = 0; i < 5; i++) {
         //     x = x + 1;    // how many Integer objects does this create total?
         // }
-        // System.out.println(x);
-        // System.out.println(x == Integer.valueOf(5));
-        // System.out.println(x == new Integer(5));
+        // System.out.println(x); 5
+        // System.out.println(x == Integer.valueOf(5)); treu 
+        // System.out.println(x == new Integer(5)); false 
     }
 
     // TODO
