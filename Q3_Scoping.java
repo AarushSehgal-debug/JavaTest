@@ -1,6 +1,7 @@
 public class Q3_Scoping {
 
     // ── PREDICT: What does main() print for lines 1-4? ──
+    // 1. 1  2 2. 1  1 3. 13 4. 5 1 
 
     static int count = 0;
     int id;
@@ -24,10 +25,12 @@ public class Q3_Scoping {
         }
         System.out.println("3: " + x);
         // Q: does "x2" exist here? (yes/no, and why)
+        // it exsists only inside the loop. it would exsist here if called outside the loop
 
         int val = 5;
         System.out.println("4: " + val + " " + a.count);
         // Q: why does a.count compile? is this good practice?
+        // count is static not sure why this would be a good practice possibly be cause .count is shared by all variables not just a so it creates decent comfusion.
 
         // ── WRITE ──
         // Create a class Counter with:
@@ -48,4 +51,20 @@ public class Q3_Scoping {
     }
 
     // TODO: write Counter here
+
+    static class Counter {
+        static int total = 0;
+        String label;
+        int id;
+    }
+
+    Counter(String label){
+        this.label = label;
+        id = ++total;
+    }
+
+    @Override
+    Public string toString() {
+        return label + " (#" + id + ")"
+            }
 }
