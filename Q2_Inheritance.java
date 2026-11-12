@@ -1,6 +1,7 @@
 public class Q2_Inheritance {
 
-    // ── PREDICT: What does main() print for lines 1-4? ──
+    // ── PREDICT: What does main() print for lines 1-4? ── 
+   // 1. Motor Spinning, 2. Falcon go brr, 2. falcon, 4. true.
 
     static class Motor {
         String name() { return "Motor"; }
